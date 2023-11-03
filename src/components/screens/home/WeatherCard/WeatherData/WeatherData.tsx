@@ -1,9 +1,11 @@
 import CurrentWeatherData from './CurrentWeatherData/CurrentWeatherData'
+import ForecastData from './ForecastData/ForecastData'
 
 const WeatherData = () => {
 	return (
 		<div>
-			<CurrentWeatherData/>
+			<CurrentWeatherData />
+			<ForecastData />
 		</div>
 	)
 }

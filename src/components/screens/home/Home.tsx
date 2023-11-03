@@ -1,8 +1,9 @@
 import WeatherCard from './WeatherCard/WeatherCard'
+import styles from "./Home.module.scss"
 
 const Home = () => {
 	return (
-		<div>
+		<div className={styles.homePage}>
 			<WeatherCard />
 		</div>
 	)

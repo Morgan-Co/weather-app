@@ -41,7 +41,6 @@ export const getForecastWeather = async (cityName: string, setForecastWeather: (
 					timezone: data.city.timezone,
 					icon: null,
 				}
-				console.log(dailyWeather)
 			} else {
 				dailyWeather[date].dt = forecast.dt
 				dailyWeather[date].main.temp.push(forecast.main.temp)
@@ -70,3 +69,4 @@ export const getForecastWeather = async (cityName: string, setForecastWeather: (
 		console.error(error)
 	}
 }
+

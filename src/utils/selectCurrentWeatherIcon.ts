@@ -29,7 +29,6 @@ export const selectCurrentWeatherIcon = (
 			} else {
 				selectedIcon = icon
 			}
-
 			break
 		}
 	}

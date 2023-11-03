@@ -3,15 +3,42 @@ import { IForecast } from '../../interfaces/IForecast'
 import { ICurrentWeather } from '../../interfaces/ICurrentWeather'
 import { IWeatherIconsData } from '../../interfaces/IWeatherIconsData'
 
+export interface IForecastIcon {
+	dt: number
+	main: {
+		temp: number[]
+		humidity: number[]
+	}
+	weather: {
+		0: {
+			icon: string
+			id: number
+		}
+	}
+	wind: {
+		speed: number[]
+	}
+	name: string
+	sys: {
+		sunrise: number
+		sunset: number
+	}
+	timezone: number
+	icon: null | JSX.Element
+}
+
 interface IWeatherContext {
 	cityName: string
 	setCityName: React.Dispatch<React.SetStateAction<string>>
 	getWeather: (
 		cityName: string,
 		setCityName: (data: string) => void,
-		setWeatherData: (data: ICurrentWeather) => void
+		setWeatherData: (data: ICurrentWeather) => void,
 	) => void
-	getForecastWeather: (cityName: string, setForecastWeather: (data: IForecast) => void) => void
+	getForecastWeather: (
+		cityName: string,
+		setForecastWeather: (data: IForecast) => void
+	) => void
 	weatherData: ICurrentWeather | undefined
 	getLocationWeather: (setWeatherData: (data: ICurrentWeather) => void) => void
 	selectCurrentWeatherIcon: (
@@ -19,8 +46,13 @@ interface IWeatherContext {
 		weatherData: ICurrentWeather | undefined
 	) => React.ReactNode
 	setWeatherData: (data: ICurrentWeather) => void
-	setForecastWeather: (data: IForecast)=> void
-	selectForecastIcons: (weatherIconsData: IWeatherIconsData, forecastWeather: IForecast)=> void
+	setForecastWeather: (data: IForecast) => void
+	selectForecastIcons: (
+		weatherIconsData: IWeatherIconsData,
+		forecastWeather: IForecastIcon
+	) => void
+	forecastWeather: IForecast | undefined
+	getLocationForecast: (setForecastWeather: (data: IForecast) => void) => void
 }
 
 const WeatherDataContext = createContext<IWeatherContext>({} as IWeatherContext)
