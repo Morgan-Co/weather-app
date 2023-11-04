@@ -6,8 +6,8 @@ const WeatherSideData = () => {
 	const { weatherData } = useContext(WeatherDataContext)
 	return (
 		<div className={styles.weatherSideData}>
-			<div>{weatherData?.main.humidity} %</div>
-			<div>{weatherData?.wind.speed} km/h</div>
+			<div>{weatherData?.main ? `${weatherData?.main?.humidity}%` : ""}</div>
+			<div>{weatherData?.wind ? `${weatherData?.wind.speed} km/h` : ""}</div>
 		</div>
 	)
 }

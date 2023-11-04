@@ -1,11 +1,14 @@
 import CurrentWeatherData from './CurrentWeatherData/CurrentWeatherData'
 import ForecastData from './ForecastData/ForecastData'
+import { useContext } from 'react'
+import WeatherDataContext from '../../../../hoc/WeatherDataContext'
 
 const WeatherData = () => {
+	const { weatherData } = useContext(WeatherDataContext)
 	return (
 		<div>
 			<CurrentWeatherData />
-			<ForecastData />
+			{weatherData?.main && <ForecastData />}
 		</div>
 	)
 }

@@ -4,13 +4,18 @@ import { FaLocationCrosshairs } from 'react-icons/fa6'
 import styles from './LocationButton.module.scss'
 
 const LocationButton = () => {
-	const { getLocationWeather, setWeatherData, getLocationForecast, setForecastWeather } = useContext(WeatherDataContext)
+	const {
+		getLocationWeather,
+		setWeatherData,
+		getLocationForecast,
+		setForecastWeather,
+	} = useContext(WeatherDataContext)
 	return (
 		<button
 			type='button'
 			onClick={() => {
-				getLocationWeather(setWeatherData)
-				getLocationForecast(setForecastWeather)
+					getLocationForecast(setForecastWeather)
+					getLocationWeather(setWeatherData)
 			}}
 			className={styles.locationButton}
 		>

@@ -19,4 +19,6 @@ export interface ICurrentWeather {
 		sunset: number
 	}
 	timezone: number
+	cod?: number
+	message?: string
 }

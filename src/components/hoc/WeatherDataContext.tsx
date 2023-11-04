@@ -34,6 +34,7 @@ interface IWeatherContext {
 		cityName: string,
 		setCityName: (data: string) => void,
 		setWeatherData: (data: ICurrentWeather) => void,
+		setError: (data: string) => void
 	) => void
 	getForecastWeather: (
 		cityName: string,
@@ -45,14 +46,15 @@ interface IWeatherContext {
 		weatherIconsData: IWeatherIconsData,
 		weatherData: ICurrentWeather | undefined
 	) => React.ReactNode
-	setWeatherData: (data: ICurrentWeather) => void
-	setForecastWeather: (data: IForecast) => void
+	setWeatherData: (data: ICurrentWeather | undefined) => void
+	setForecastWeather: (data: IForecast | undefined) => void
 	selectForecastIcons: (
 		weatherIconsData: IWeatherIconsData,
 		forecastWeather: IForecastIcon
 	) => void
 	forecastWeather: IForecast | undefined
 	getLocationForecast: (setForecastWeather: (data: IForecast) => void) => void
+	setError: (data: string) => void
 }
 
 const WeatherDataContext = createContext<IWeatherContext>({} as IWeatherContext)

@@ -7,8 +7,8 @@ const WeatherTemp = () => {
 	const { weatherData } = useContext(WeatherDataContext)
 	return (
 		<div className={styles.weatherTemp}>
-			{weatherData && Math.round(weatherData.main.temp)}
-			<RiCelsiusLine />
+			{weatherData && weatherData.main ? Math.round(weatherData.main?.temp) : weatherData?.cod}
+			{weatherData && weatherData.main ? <RiCelsiusLine/> : ""}
 		</div>
 	)
 }
