@@ -12,14 +12,13 @@ import { selectForecastIcons } from '../../../../utils/selectForecastIcons'
 import { getLocationForecast } from '../../../hoc/getLocationWeather'
 import styles from './WeatherCard.module.scss'
 const WeatherCard = () => {
-	const [error, setError] = useState('')
 	const [weatherData, setWeatherData] = useState<ICurrentWeather>()
 	const [forecastWeather, setForecastWeather] = useState<IForecast>()
 	const [cityName, setCityName] = useState<string>('')
 
 	useEffect(() => {
-		console.log(error)
-	}, [error])
+		console.log(forecastWeather)
+	}, [forecastWeather])
 
 	return (
 		<WeatherDataContext.Provider
@@ -36,7 +35,6 @@ const WeatherCard = () => {
 				selectForecastIcons,
 				forecastWeather,
 				getLocationForecast,
-				setError,
 			}}
 		>
 			<div className={styles.weatherCard}>
